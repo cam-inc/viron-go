@@ -7,29 +7,29 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3filter"
 
-	"github.com/cam-inc/viron-go/routes/adminaccounts"
+	"github.com/cam-inc/viron-go/lib/routes/adminaccounts"
 
-	"github.com/cam-inc/viron-go/helpers"
+	"github.com/cam-inc/viron-go/lib/helpers"
 
 	"github.com/cam-inc/viron-go-example/pkg/domains"
 	"github.com/cam-inc/viron-go-example/routes/root"
 
 	"github.com/cam-inc/viron-go-example/routes/components"
-	"github.com/cam-inc/viron-go/routes/adminroles"
-	"github.com/cam-inc/viron-go/routes/adminusers"
-	"github.com/cam-inc/viron-go/routes/auditlogs"
-	"github.com/cam-inc/viron-go/routes/authconfigs"
+	"github.com/cam-inc/viron-go/lib/routes/adminroles"
+	"github.com/cam-inc/viron-go/lib/routes/adminusers"
+	"github.com/cam-inc/viron-go/lib/routes/auditlogs"
+	"github.com/cam-inc/viron-go/lib/routes/authconfigs"
 
-	packageComponents "github.com/cam-inc/viron-go/routes/components"
+	packageComponents "github.com/cam-inc/viron-go/lib/routes/components"
 
 	"github.com/getkin/kin-openapi/openapi3"
 
 	"github.com/cam-inc/viron-go-example/pkg/config"
 	"github.com/cam-inc/viron-go-example/pkg/store"
-	packageDomains "github.com/cam-inc/viron-go/domains"
-	packageDomainAuth "github.com/cam-inc/viron-go/domains/auth"
-	"github.com/cam-inc/viron-go/routes/auth"
-	"github.com/cam-inc/viron-go/routes/oas"
+	packageDomains "github.com/cam-inc/viron-go/lib/domains"
+	packageDomainAuth "github.com/cam-inc/viron-go/lib/domains/auth"
+	"github.com/cam-inc/viron-go/lib/routes/auth"
+	"github.com/cam-inc/viron-go/lib/routes/oas"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/chi/v5"
 	"github.com/imdario/mergo"

@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/cam-inc/viron-go-example/pkg/constant"
-	pkgConstant "github.com/cam-inc/viron-go/constant"
+	pkgConstant "github.com/cam-inc/viron-go/lib/constant"
 
-	"github.com/cam-inc/viron-go/logging"
+	"github.com/cam-inc/viron-go/lib/logging"
 )
 
 func Log(ctx context.Context) logging.Logger {

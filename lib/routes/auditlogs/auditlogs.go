@@ -3,11 +3,11 @@ package auditlogs
 import (
 	"net/http"
 
-	"github.com/cam-inc/viron-go/constant"
+	"github.com/cam-inc/viron-go/lib/constant"
 
-	"github.com/cam-inc/viron-go/helpers"
+	"github.com/cam-inc/viron-go/lib/helpers"
 
-	"github.com/cam-inc/viron-go/domains"
+	"github.com/cam-inc/viron-go/lib/domains"
 )
 
 type (

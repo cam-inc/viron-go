@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/cam-inc/viron-go/repositories"
+	"github.com/cam-inc/viron-go/lib/repositories"
 
 	"github.com/volatiletech/sqlboiler/v4/queries/qm"
 )

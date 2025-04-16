@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/cam-inc/viron-go/constant"
+	"github.com/cam-inc/viron-go/lib/constant"
 )
 
 // GenCookie cookie生成

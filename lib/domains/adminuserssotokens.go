@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/cam-inc/viron-go/errors"
+	"github.com/cam-inc/viron-go/lib/errors"
 
-	"github.com/cam-inc/viron-go/repositories/container"
+	"github.com/cam-inc/viron-go/lib/repositories/container"
 
-	"github.com/cam-inc/viron-go/constant"
-	"github.com/cam-inc/viron-go/repositories"
+	"github.com/cam-inc/viron-go/lib/constant"
+	"github.com/cam-inc/viron-go/lib/repositories"
 )
 
 type (

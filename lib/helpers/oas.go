@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/cam-inc/viron-go/logging"
+	"github.com/cam-inc/viron-go/lib/logging"
 
 	"github.com/imdario/mergo"
 
-	"github.com/cam-inc/viron-go/constant"
+	"github.com/cam-inc/viron-go/lib/constant"
 
 	"github.com/getkin/kin-openapi/openapi3"
 )

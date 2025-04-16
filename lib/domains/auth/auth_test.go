@@ -7,12 +7,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cam-inc/viron-go/configs"
-	"github.com/cam-inc/viron-go/constant"
-	"github.com/cam-inc/viron-go/domains"
-	"github.com/cam-inc/viron-go/repositories"
-	"github.com/cam-inc/viron-go/repositories/container"
-	"github.com/cam-inc/viron-go/repositories/mock"
+	"github.com/cam-inc/viron-go/lib/configs"
+	"github.com/cam-inc/viron-go/lib/constant"
+	"github.com/cam-inc/viron-go/lib/domains"
+	"github.com/cam-inc/viron-go/lib/repositories"
+	"github.com/cam-inc/viron-go/lib/repositories/container"
+	"github.com/cam-inc/viron-go/lib/repositories/mock"
 
 	"github.com/coreos/go-oidc/v3/oidc"
 	"github.com/stretchr/testify/assert"

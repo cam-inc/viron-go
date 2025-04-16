@@ -3,7 +3,7 @@ package mock
 import (
 	"context"
 
-	"github.com/cam-inc/viron-go/repositories"
+	"github.com/cam-inc/viron-go/lib/repositories"
 )
 
 type (

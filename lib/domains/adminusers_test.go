@@ -4,15 +4,15 @@ import (
 	"context"
 	"testing"
 
-	"github.com/cam-inc/viron-go/helpers"
+	"github.com/cam-inc/viron-go/lib/helpers"
 
-	"github.com/cam-inc/viron-go/constant"
+	"github.com/cam-inc/viron-go/lib/constant"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/cam-inc/viron-go/repositories"
+	"github.com/cam-inc/viron-go/lib/repositories"
 
-	"github.com/cam-inc/viron-go/repositories/container"
-	"github.com/cam-inc/viron-go/repositories/mock"
+	"github.com/cam-inc/viron-go/lib/repositories/container"
+	"github.com/cam-inc/viron-go/lib/repositories/mock"
 )
 
 func TestCreateAdminUser(t *testing.T) {

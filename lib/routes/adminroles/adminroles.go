@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/cam-inc/viron-go/errors"
+	"github.com/cam-inc/viron-go/lib/errors"
 
-	"github.com/cam-inc/viron-go/helpers"
+	"github.com/cam-inc/viron-go/lib/helpers"
 
-	"github.com/cam-inc/viron-go/constant"
-	"github.com/cam-inc/viron-go/domains"
+	"github.com/cam-inc/viron-go/lib/constant"
+	"github.com/cam-inc/viron-go/lib/domains"
 	"github.com/getkin/kin-openapi/openapi3"
 
-	externalRef0 "github.com/cam-inc/viron-go/routes/components"
+	externalRef0 "github.com/cam-inc/viron-go/lib/routes/components"
 )
 
 type (

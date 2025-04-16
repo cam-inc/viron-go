@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/cam-inc/viron-go/errors"
+	"github.com/cam-inc/viron-go/lib/errors"
 	"github.com/stretchr/testify/assert"
 )
 

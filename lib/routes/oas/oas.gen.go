@@ -14,7 +14,7 @@ import (
 	"path"
 	"strings"
 
-	externalRef0 "github.com/cam-inc/viron-go/routes/components"
+	externalRef0 "github.com/cam-inc/viron-go/lib/routes/components"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/go-chi/chi/v5"
 )

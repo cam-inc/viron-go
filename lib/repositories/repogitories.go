@@ -7,7 +7,7 @@ import (
 
 	"go.mongodb.org/mongo-driver/bson"
 
-	"github.com/cam-inc/viron-go/constant"
+	"github.com/cam-inc/viron-go/lib/constant"
 
 	"go.mongodb.org/mongo-driver/mongo/options"
 

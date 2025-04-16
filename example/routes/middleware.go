@@ -9,12 +9,12 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/cam-inc/viron-go/constant"
-	"github.com/cam-inc/viron-go/domains"
-	"github.com/cam-inc/viron-go/domains/auth"
-	"github.com/cam-inc/viron-go/errors"
-	"github.com/cam-inc/viron-go/helpers"
-	"github.com/cam-inc/viron-go/logging"
+	"github.com/cam-inc/viron-go/lib/constant"
+	"github.com/cam-inc/viron-go/lib/domains"
+	"github.com/cam-inc/viron-go/lib/domains/auth"
+	"github.com/cam-inc/viron-go/lib/errors"
+	"github.com/cam-inc/viron-go/lib/helpers"
+	"github.com/cam-inc/viron-go/lib/logging"
 
 	"github.com/getkin/kin-openapi/openapi3filter"
 	legacyrouter "github.com/getkin/kin-openapi/routers/legacy"

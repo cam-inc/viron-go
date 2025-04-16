@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/cam-inc/viron-go/errors"
+	"github.com/cam-inc/viron-go/lib/errors"
 
-	"github.com/cam-inc/viron-go/constant"
+	"github.com/cam-inc/viron-go/lib/constant"
 
-	"github.com/cam-inc/viron-go/configs"
+	"github.com/cam-inc/viron-go/lib/configs"
 
 	"github.com/lestrrat-go/jwx/jwa"
 	jwxJwt "github.com/lestrrat-go/jwx/jwt"

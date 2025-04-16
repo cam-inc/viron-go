@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/cam-inc/viron-go/errors"
+	"github.com/cam-inc/viron-go/lib/errors"
 
-	"github.com/cam-inc/viron-go/linter"
-	"github.com/cam-inc/viron-go/logging"
+	"github.com/cam-inc/viron-go/lib/linter"
+	"github.com/cam-inc/viron-go/lib/logging"
 
-	"github.com/cam-inc/viron-go/helpers"
+	"github.com/cam-inc/viron-go/lib/helpers"
 
-	"github.com/cam-inc/viron-go/domains"
+	"github.com/cam-inc/viron-go/lib/domains"
 
-	"github.com/cam-inc/viron-go/constant"
+	"github.com/cam-inc/viron-go/lib/constant"
 
 	"github.com/getkin/kin-openapi/openapi3"
 )

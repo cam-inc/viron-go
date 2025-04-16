@@ -3,17 +3,17 @@ package adminusers
 import (
 	"net/http"
 
-	"github.com/cam-inc/viron-go/logging"
+	"github.com/cam-inc/viron-go/lib/logging"
 
-	"github.com/cam-inc/viron-go/constant"
+	"github.com/cam-inc/viron-go/lib/constant"
 
 	openapi_types "github.com/oapi-codegen/runtime/types"
 
-	"github.com/cam-inc/viron-go/helpers"
+	"github.com/cam-inc/viron-go/lib/helpers"
 
-	"github.com/cam-inc/viron-go/domains"
+	"github.com/cam-inc/viron-go/lib/domains"
 
-	externalRef0 "github.com/cam-inc/viron-go/routes/components"
+	externalRef0 "github.com/cam-inc/viron-go/lib/routes/components"
 )
 
 type (

@@ -105,7 +105,7 @@ Go Modulesはこれを検出して、そのバージョンをモジュールと�
 
 インポートも通常通り行います。
 
-import "github.com/cam-inc/viron-go/domains"
+import "github.com/cam-inc/viron-go/lib/domains"
 ```
 
 #### v2以降のバージョンについて

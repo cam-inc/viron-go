@@ -12,7 +12,7 @@ import (
 	"github.com/cam-inc/viron-go-example/pkg/constant"
 	"github.com/cam-inc/viron-go-example/pkg/server"
 	"github.com/cam-inc/viron-go-example/routes"
-	pkgConstant "github.com/cam-inc/viron-go/constant"
+	pkgConstant "github.com/cam-inc/viron-go/lib/constant"
 )
 
 type (

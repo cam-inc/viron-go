@@ -3,21 +3,21 @@ package container
 import (
 	"database/sql"
 
-	"github.com/cam-inc/viron-go/repositories/mock"
+	"github.com/cam-inc/viron-go/lib/repositories/mock"
 
-	"github.com/cam-inc/viron-go/repositories/mongo"
+	"github.com/cam-inc/viron-go/lib/repositories/mongo"
 
-	"github.com/cam-inc/viron-go/repositories"
+	"github.com/cam-inc/viron-go/lib/repositories"
 
-	"github.com/cam-inc/viron-go/repositories/mysql/adminusers"
-	"github.com/cam-inc/viron-go/repositories/mysql/adminuserssotokens"
-	"github.com/cam-inc/viron-go/repositories/mysql/auditlogs"
-	"github.com/cam-inc/viron-go/repositories/mysql/revokedtokens"
+	"github.com/cam-inc/viron-go/lib/repositories/mysql/adminusers"
+	"github.com/cam-inc/viron-go/lib/repositories/mysql/adminuserssotokens"
+	"github.com/cam-inc/viron-go/lib/repositories/mysql/auditlogs"
+	"github.com/cam-inc/viron-go/lib/repositories/mysql/revokedtokens"
 
-	mongoAdminUsers "github.com/cam-inc/viron-go/repositories/mongo/adminusers"
-	mongoAdminUserSSOTokens "github.com/cam-inc/viron-go/repositories/mongo/adminuserssotokens"
-	mongoAuditlogs "github.com/cam-inc/viron-go/repositories/mongo/auditlogs"
-	mongoRevokedtokens "github.com/cam-inc/viron-go/repositories/mongo/revokedtokens"
+	mongoAdminUsers "github.com/cam-inc/viron-go/lib/repositories/mongo/adminusers"
+	mongoAdminUserSSOTokens "github.com/cam-inc/viron-go/lib/repositories/mongo/adminuserssotokens"
+	mongoAuditlogs "github.com/cam-inc/viron-go/lib/repositories/mongo/auditlogs"
+	mongoRevokedtokens "github.com/cam-inc/viron-go/lib/repositories/mongo/revokedtokens"
 )
 
 var (

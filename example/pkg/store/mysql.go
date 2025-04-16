@@ -6,7 +6,7 @@ import (
 	"github.com/volatiletech/sqlboiler/v4/boil"
 
 	"github.com/cam-inc/viron-go-example/pkg/constant"
-	"github.com/cam-inc/viron-go/logging"
+	"github.com/cam-inc/viron-go/lib/logging"
 
 	"github.com/cam-inc/viron-go-example/pkg/config"
 )

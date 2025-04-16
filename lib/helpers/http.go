@@ -7,9 +7,9 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/cam-inc/viron-go/errors"
+	"github.com/cam-inc/viron-go/lib/errors"
 
-	"github.com/cam-inc/viron-go/logging"
+	"github.com/cam-inc/viron-go/lib/logging"
 )
 
 func SendError(w http.ResponseWriter, code int, err error) {

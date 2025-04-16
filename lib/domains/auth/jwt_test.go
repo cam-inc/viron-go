@@ -9,11 +9,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cam-inc/viron-go/constant"
-	pkgErrors "github.com/cam-inc/viron-go/errors"
-	"github.com/cam-inc/viron-go/repositories"
-	"github.com/cam-inc/viron-go/repositories/container"
-	"github.com/cam-inc/viron-go/repositories/mock"
+	"github.com/cam-inc/viron-go/lib/constant"
+	pkgErrors "github.com/cam-inc/viron-go/lib/errors"
+	"github.com/cam-inc/viron-go/lib/repositories"
+	"github.com/cam-inc/viron-go/lib/repositories/container"
+	"github.com/cam-inc/viron-go/lib/repositories/mock"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -1,4 +1,4 @@
-module github.com/cam-inc/viron-go
+module github.com/cam-inc/viron-go/lib
 
 go 1.24
 

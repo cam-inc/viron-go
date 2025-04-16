@@ -12,13 +12,13 @@ tasks:
     cmds:
       - |
         {{.GOPATH}}/bin/oapi-codegen -generate "types,skip-prune,spec" -package components -o ./lib/routes/components/components.gen.go ./lib/api/components.yaml
-        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/routes/components -generate "types,chi-server,spec" -package oas -o ./lib/routes/oas/oas.gen.go ./lib/api/oas.yaml
-        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/routes/components -generate "types,chi-server,spec" -package auth -o ./lib/routes/auth/auth.gen.go ./lib/api/auth.yaml
-        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/routes/components -generate "types,chi-server,spec" -package adminusers -o ./lib/routes/adminusers/adminusers.gen.go ./lib/api/adminusers.yaml
-        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/routes/components,./adminusers.yaml:github.com/cam-inc/viron-go/routes/adminusers -generate "types,chi-server,spec" -package adminaccounts -o ./lib/routes/adminaccounts/adminaccounts.gen.go ./lib/api/adminaccounts.yaml
-        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/routes/components -generate "types,chi-server,spec" -package adminroles -o ./lib/routes/adminroles/adminroles.gen.go ./lib/api/adminroles.yaml
-        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/routes/components -generate "types,chi-server,spec" -package authconfigs -o ./lib/routes/authconfigs/authconfigs.gen.go ./lib/api/authconfigs.yaml
-        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/routes/components -generate "types,chi-server,spec" -package auditlogs -o ./lib/routes/auditlogs/auditlogs.gen.go ./lib/api/auditlogs.yaml
+        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/lib/routes/components -generate "types,chi-server,spec" -package oas -o ./lib/routes/oas/oas.gen.go ./lib/api/oas.yaml
+        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/lib/routes/components -generate "types,chi-server,spec" -package auth -o ./lib/routes/auth/auth.gen.go ./lib/api/auth.yaml
+        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/lib/routes/components -generate "types,chi-server,spec" -package adminusers -o ./lib/routes/adminusers/adminusers.gen.go ./lib/api/adminusers.yaml
+        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/lib/routes/components,./adminusers.yaml:github.com/cam-inc/viron-go/lib/routes/adminusers -generate "types,chi-server,spec" -package adminaccounts -o ./lib/routes/adminaccounts/adminaccounts.gen.go ./lib/api/adminaccounts.yaml
+        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/lib/routes/components -generate "types,chi-server,spec" -package adminroles -o ./lib/routes/adminroles/adminroles.gen.go ./lib/api/adminroles.yaml
+        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/lib/routes/components -generate "types,chi-server,spec" -package authconfigs -o ./lib/routes/authconfigs/authconfigs.gen.go ./lib/api/authconfigs.yaml
+        {{.GOPATH}}/bin/oapi-codegen -import-mapping ./components.yaml:github.com/cam-inc/viron-go/lib/routes/components -generate "types,chi-server,spec" -package auditlogs -o ./lib/routes/auditlogs/auditlogs.gen.go ./lib/api/auditlogs.yaml
 
   example-oas-gen:
     desc: Generates example api code for the Go language.

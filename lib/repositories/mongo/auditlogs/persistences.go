@@ -4,14 +4,14 @@ import (
 	"context"
 	"time"
 
-	"github.com/cam-inc/viron-go/helpers"
+	"github.com/cam-inc/viron-go/lib/helpers"
 
 	"go.mongodb.org/mongo-driver/bson"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
-	"github.com/cam-inc/viron-go/repositories"
-	"github.com/cam-inc/viron-go/repositories/mongo"
+	"github.com/cam-inc/viron-go/lib/repositories"
+	"github.com/cam-inc/viron-go/lib/repositories/mongo"
 )
 
 type (

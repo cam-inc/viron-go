@@ -3,10 +3,10 @@ package domains
 import (
 	"database/sql"
 
-	vironMongo "github.com/cam-inc/viron-go/repositories/mongo"
+	vironMongo "github.com/cam-inc/viron-go/lib/repositories/mongo"
 	"go.mongodb.org/mongo-driver/mongo"
 
-	"github.com/cam-inc/viron-go/repositories/container"
+	"github.com/cam-inc/viron-go/lib/repositories/container"
 )
 
 func SetUpMySQL(conn *sql.DB) error {

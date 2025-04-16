@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/cam-inc/viron-go/repositories"
-	"github.com/cam-inc/viron-go/repositories/container"
+	"github.com/cam-inc/viron-go/lib/repositories"
+	"github.com/cam-inc/viron-go/lib/repositories/container"
 )
 
 type (

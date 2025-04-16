@@ -9,11 +9,11 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 
 	"github.com/cam-inc/viron-go-example/pkg/constant"
-	pkgConfig "github.com/cam-inc/viron-go/configs"
-	pkgConstant "github.com/cam-inc/viron-go/constant"
-	pkgDomainsAuth "github.com/cam-inc/viron-go/domains/auth"
-	pkgHelpers "github.com/cam-inc/viron-go/helpers"
-	pkgRoutesAuth "github.com/cam-inc/viron-go/routes/auth"
+	pkgConfig "github.com/cam-inc/viron-go/lib/configs"
+	pkgConstant "github.com/cam-inc/viron-go/lib/constant"
+	pkgDomainsAuth "github.com/cam-inc/viron-go/lib/domains/auth"
+	pkgHelpers "github.com/cam-inc/viron-go/lib/helpers"
+	pkgRoutesAuth "github.com/cam-inc/viron-go/lib/routes/auth"
 	"github.com/go-sql-driver/mysql"
 )
 
