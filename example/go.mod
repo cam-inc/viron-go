@@ -3,7 +3,7 @@ module github.com/cam-inc/viron-go-example
 go 1.24
 
 require (
-	// github.com/cam-inc/viron-go v0.0.0-00010101000000-000000000000
+	github.com/cam-inc/viron-go/lib v0.0.1
 	github.com/getkin/kin-openapi v0.118.0
 	github.com/go-chi/chi v1.5.4
 	github.com/go-chi/chi/v5 v5.0.10
@@ -17,8 +17,6 @@ require (
 	go.mongodb.org/mongo-driver v1.16.1
 	go.uber.org/automaxprocs v1.6.0
 )
-
-require github.com/cam-inc/viron-go/lib v0.0.0-00010101000000-000000000000
 
 require (
 	cel.dev/expr v0.19.0 // indirect
