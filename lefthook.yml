@@ -1,6 +1,9 @@
 pre-commit:
    parallel: true
    commands:
-      golangci-lint:
+      golangci-lint-lib:
         run: |
-          ./bin/golangci-lint run  ./...  -v
+          cd lib && ./../bin/golangci-lint run  ./...  -v
+      golangci-lint-example:
+        run: |
+          cd example && ./../bin/golangci-lint run  ./...  -v
