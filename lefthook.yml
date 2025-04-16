@@ -1,0 +1,9 @@
+pre-commit:
+  commands:
+    lint:
+      run: task lint
+
+pre-push:
+  commands:
+    test:
+      run: task test

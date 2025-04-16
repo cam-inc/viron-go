@@ -56,6 +56,16 @@ $ asdf plugin add helm https://github.com/Antiarchitect/asdf-helm.git
 $ asdf install
 ```
 
+##### Installing lefthook
+```
+$ brew install lefthook
+```
+
+##### Installing dependencies with asdf
+```
+$ npx lefthook install
+```
+
 #### Setting Up the Application
 ##### Installing dependencies with task
 ```
