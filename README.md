@@ -1,27 +1,19 @@
-# Vironのバックエンド用のライブラリ
+# Library for Viron's Backend
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://discovery.viron.plus/docs/introduction/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/cam-inc/viron.svg)]()
 
-## Viron GOとは
+## What is Viron GO?
 
-Viron GOはViron用バックエンドアプリケーションの開発を短縮できるライブラリーです。
+Viron GO is a library that shortens the development time for backend applications for Viron.
 
-## コードの貢献
+## Contributing to the Code
 [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-## サンプルコード
+## Example Code
 [example/README.md](./example/README.md)
 
-## 行動規範
+## Changelog
 
-[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
-
-## ライセンス
-
-[MIT LICENSE](./LICENSE)
-
-## 変更履歴
-
-[CHANGELOG.mb](./CHANGELOG.md)
+[CHANGELOG.md](./CHANGELOG.md)

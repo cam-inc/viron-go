@@ -1,49 +1,49 @@
-# Viron GOへの貢献
+# Contributing to Viron GO
 
 ---
 
-このプロジェクトへの貢献を皆さんに奨励し、サポートしていただきたいと考えています。
+We encourage and support everyone to contribute to this project.
 
-タスクは[GitHub Project](https://github.com/orgs/cam-inc/projects/2)で管理しており、進行中、完了、高優先度の課題を確認できます。
+Tasks are managed in the [GitHub Project](https://github.com/orgs/cam-inc/projects/2), where you can check ongoing, completed, and high-priority issues.
 
-## どのように貢献できますか？
+## How can you contribute?
 
-### バグの報告
+### Reporting Bugs
 
-バグを報告するには、[GitHub issue](https://github.com/cam-inc/viron-go/issues/new?assignees=&labels=bug&template=bug_report.md&title=)を提出してください。提出する前に、似たような問題が既に存在しないか確認してください。
+To report a bug, please submit a [GitHub issue](https://github.com/cam-inc/viron-go/issues/new?assignees=&labels=bug&template=bug_report.md&title=). Before submitting, make sure a similar issue does not already exist.
 
-### 機能改善の提案
+### Proposing Feature Enhancements
 
-機能改善を提案するには、[GitHub issue](https://github.com/cam-inc/viron-go/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)を提出してください。
+To propose a feature enhancement, please submit a [GitHub issue](https://github.com/cam-inc/viron-go/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
 
-### コードの貢献
+### Contributing Code
 
-#### コードを取得
+#### Getting the Code
 ```
 $ git clone git@github.com:cam-inc/fensi-go.git
 ```
 
-#### ツールセットアップ
-##### taskfileインストール
+#### Setting Up Tools
+##### Installing taskfile
 ```
-# tips: 他のインストール方法でも大丈夫です。
-# 詳しくは https://taskfile.dev/installation/ を参照してください。
+# Tips: Other installation methods are also acceptable.
+# For more details, refer to https://taskfile.dev/installation/.
 
 $ brew install go-task/tap/go-task
 ```
 
-##### asdf インストール
+##### Installing asdf
 ```
-# tips: 他のインストール方法でも大丈夫です。
-# 詳しくは https://asdf-vm.com/guide/getting-started.html を参照してください
+# Tips: Other installation methods are also acceptable.
+# For more details, refer to https://asdf-vm.com/guide/getting-started.html
 $ brew install asdf
 
-# 設定
+# Configuration
 $ echo 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"' >> ~/.zshrc
 $ source ~/.zshrc
 ```
 
-##### asdf plugin インストール
+##### Installing asdf plugins
 ```
 $ asdf plugin add golang
 $ asdf plugin add ko https://github.com/zasdaym/asdf-ko.git
@@ -51,73 +51,72 @@ $ asdf plugin add lefthook https://github.com/jtzero/asdf-lefthook.git
 $ asdf plugin add helm https://github.com/Antiarchitect/asdf-helm.git
 ```
 
-##### asdf install
+##### Installing dependencies with asdf
 ```
 $ asdf install
 ```
 
-#### アプリケーションセットアップ
-##### task install
+#### Setting Up the Application
+##### Installing dependencies with task
 ```
 $ task install
 ```
 
-##### go mod tidy
+##### Running go mod tidy
 ```
 $ task tidy
 ```
 
-#### テスト実行
+#### Running Tests
 ```
 $ task test
 ```
 
-以下はコード貢献の簡単なガイドです。
+Below is a simple guide for contributing code:
 
-1. リポジトリをフォークし、ローカルマシンにクローンします。
-2. `main`ブランチから、新しいタスクに適した意味のある名前のブランチを作成します。
-3. 次のコマンドを実行してセットアップします: `go mod tidy`。
-4. ブランチをプッシュします。
-5. アップストリームリポジトリにプルリクエストを提出します。
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch with a meaningful name suitable for the task from the `main` branch.
+3. Run the following command to set up: `go mod tidy`.
+4. Push the branch.
+5. Submit a pull request to the upstream repository.
 
-#### バージョンを管理
-Go Modulesでバージョンを認識させるには、Gitタグを付ける必要があります。使用するバージョンは 必ず vX.Y.Z（[セマンティックバージョニング](https://semver.org)）形式にします。
+#### Managing Versions
+To make the version recognizable by Go Modules, you need to tag it in Git. Always use the format vX.Y.Z ([Semantic Versioning](https://semver.org)).
 
 [Module version numbering](https://go.dev/doc/modules/version-numbers)
 ```
-例)
+Example:
 
-v1.0.0 を付けるには、
+To tag v1.0.0:
 
 git tag v1.0.0
 git push origin v1.0.0
 ```
 
-📌 注意
+📌 Note
 
-タグ名に必ず v プレフィックスが必要です（例: v1.2.3）
-Go Modulesはこれを検出して、そのバージョンをモジュールとして利用します。
+The tag name must include the `v` prefix (e.g., v1.2.3). Go Modules detects this and uses the version as a module.
 
-#### 使用側プロジェクトから利用する
-別のGoプロジェクトから、このライブラリを読み込むには go get を使います。
+#### Using the Library in Other Projects
+To use this library in another Go project, use `go get`.
 ```
-例:go get github.com/github.com/cam-inc/viron-go@v1.0.0
+Example: go get github.com/cam-inc/viron-go@v1.0.0
 
-インポートも通常通り行います。
+Import it as usual:
 
 import "github.com/cam-inc/viron-go/lib/domains"
 ```
 
-#### v2以降のバージョンについて
-Go Modulesでは メジャーバージョンv2以降 は特別な扱いになります。ディレクトリ名やモジュールパスにもそのバージョンを含める必要があります。
+#### Versions v2 and Beyond
+For major versions v2 and later, Go Modules requires special handling. The directory name and module path must include the version.
 
 [Go Modules: v2 and Beyond](https://go.dev/blog/v2-go-modules)
 ```
-例)
+Example:
 
-モジュール名: github.com/cam-inc/viron-go/v2
-ディレクトリ構成: github.com/cam-inc/viron-go/v2/domains
-実行するコマンド:
+Module name: github.com/cam-inc/viron-go/v2
+Directory structure: github.com/cam-inc/viron-go/v2/domains
+Command to execute:
 
 go mod init github.com/cam-inc/viron-go/v2
 
@@ -126,62 +125,61 @@ git tag v2.0.0
 go get github.com/cam-inc/viron-go/v2@v2.0.0
 ```
 
-#### リリースワークフロー
+#### Release Workflow
 [Module release and versioning workflow](https://go.dev/doc/modules/release-workflow)
 
-Go (Golang) の自作ライブラリのリリースワークフロー（GitHub連携を前提）は、以下のように設計できます。これにより、Gitでバージョン管理されたコードを正しくリリースし、Go Modules対応で外部プロジェクトから利用できるようになります。
+The release workflow for custom Go (Golang) libraries (assuming GitHub integration) can be designed as follows. This ensures that version-controlled code is correctly released and usable by external projects with Go Modules.
 
-**🔁 一般的なリリースワークフローの流れ**
+**🔁 General Release Workflow**
 
-1. 開発ブランチで機能実装・テスト
-2. main ブランチへマージ
-3. バージョン番号（セマンティックバージョニング）を決定
-4. Git タグを付与（go modules 対応）
-5. GitHub リリース作成（オプション）
-6. 他プロジェクトから go get でインポート・利用
+1. Implement and test features on a development branch.
+2. Merge into the `main` branch.
+3. Decide on the version number (Semantic Versioning).
+4. Add a Git tag (Go Modules compatible).
+5. Create a GitHub release (optional).
+6. Import and use with `go get` in other projects.
 
-**📌 手順詳細**
+**📌 Detailed Steps**
 
-- ① 開発・テスト
-  - 機能追加やバグ修正をブランチ（feature/xxx、fix/yyyなど）で行い、ユニットテストやCIを通して検証します。
+- ① Development and Testing
+  - Add features or fix bugs on branches (e.g., feature/xxx, fix/yyy) and validate with unit tests or CI.
 
-- ② main ブランチにマージ
-  - Pull Request などでレビュー後、main ブランチにマージしてマイルストーンを完了とします。
+- ② Merge into the `main` Branch
+  - After review (e.g., via Pull Requests), merge into the `main` branch to complete the milestone.
 
-- ③ バージョンを決める
-  - 機能追加 → minor アップ (v1.1.0 → v1.2.0)
-  - バグ修正のみ → patch アップ (v1.2.3 → v1.2.4)
-  - 互換性のない変更 → major アップ (v1.x.x → v2.0.0)
+- ③ Decide the Version
+  - Feature addition → Minor update (v1.1.0 → v1.2.0)
+  - Bug fixes only → Patch update (v1.2.3 → v1.2.4)
+  - Breaking changes → Major update (v1.x.x → v2.0.0)
 
-- ④ Git タグを付けてリリース
-  - CLIでタグを作成します（必ず v を付ける）:
+- ④ Tag and Release
+  - Create a tag via CLI (always include `v`):
     ```
     git tag v1.2.0
     git push origin v1.2.0
 
-    これにより Go Modules がこのタグをバージョンとして認識します。
+    This allows Go Modules to recognize the tag as a version.
     ```
 
-- ⑤ GitHub Releases でリリースノートを書く（任意）
-  - GitHub の UI または CLI（gh release）を使ってリリースノートを追加します。これによりユーザーに変更点が明確に伝わります。
+- ⑤ Write Release Notes on GitHub (Optional)
+  - Use GitHub UI or CLI (`gh release`) to add release notes, making changes clear to users.
     ```
-    例:
+    Example:
 
-    gh release create v1.2.0 --title "v1.2.0 リリース" --notes "新機能とバグ修正を含むリリースです"
+    gh release create v1.2.0 --title "v1.2.0 Release" --notes "This release includes new features and bug fixes."
     ```
 
+## Code of Conduct
 
-## 行動規範
+Please follow [this document](./CODE_OF_CONDUCT.md).
 
-[こちら](./CODE_OF_CONDUCT.md)に従ってください。
+## License
 
-## ライセンス
+By contributing to this project, you agree to license your contributions under the [MIT License](./LICENSE).
 
-このプロジェクトに貢献することで、あなたの貢献を[MITライセンス](./LICENSE)の下でライセンスすることに同意したことになります。
+## Contributors
 
-## 貢献者
-
-このプロジェクトに貢献してくださった皆さんに感謝します。
+We thank everyone who has contributed to this project.
 
 <table>
   <tr>

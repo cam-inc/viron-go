@@ -1,44 +1,44 @@
-# サンプル API (Go)
+# Sample API (Go)
 
-`docker-compose` を使用したサンプル API 環境を提供します。
+Provides a sample API environment using `docker-compose`.
 
-## クイックスタート
+## Quick Start
 
-### 事前準備
+### Prerequisites
 
-#### Docker のインストール
+#### Install Docker
 
-- Docker for Desktop をインストールしてください。[ダウンロードサイト](https://www.docker.com/products/docker-desktop)
+- Install Docker for Desktop. [Download Site](https://www.docker.com/products/docker-desktop)
 
-#### 証明書ファイル
-`viron.crt`、`viron.csr`、`viron.key` ファイルを取得し、`viron-go/example/cert` ディレクトリに配置してください。
+#### Certificate Files
+Obtain the `viron.crt`, `viron.csr`, and `viron.key` files and place them in the `viron-go/example/cert` directory.
 
-#### .env ファイル
+#### .env File
 ```
 cd viron-go/example
 cp .env.template .env
 ```
-その後、プロジェクトのシークレット情報を記入してください。
+Then, fill in the project's secret information.
 
-### サンプル用データベース起動
+### Start the Sample Database
 
 ```
 cd viron-go/example
 
-# MySQL を使用する場合
+# When using MySQL
 docker compose -f docker-compose-store.yaml up --build mysql
 
-# Mongo を使用する場合
+# When using Mongo
 docker compose -f docker-compose-store.yaml up --build mongo
 ```
 
-### サンプル用バックエンドアプリケーション起動
+### Start the Sample Backend Application
 ```
 cd viron-go
 
-# MySQL を使用する場合
+# When using MySQL
 task example-dev-mysql
 
-# Mongo を使用する場合
+# When using Mongo
 task example-dev-mongo
 ```
