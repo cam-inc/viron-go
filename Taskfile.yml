@@ -1,0 +1,114 @@
+version: '3'
+
+silent: false
+
+output: prefixed
+
+env:
+  GOPATH: 
+    sh: go env GOPATH
+
+includes:
+  generate: ./Taskfile_generate.yaml
+
+tasks:
+  install:
+    desc: Prepare a development environment
+    deps:
+      - pre
+      - golang-install
+      - golangci-lint-install
+    cmds:
+      - task: post-install
+  pre:
+    cmds:
+      - echo 'Preliminary preparations have been completed.'
+      - mkdir -p bin
+    preconditions:
+      - sh: "which go"
+        msg: 'Please install golang.'
+
+  golang-install:
+    cmds:
+      - go install github.com/rakyll/statik
+      - go install golang.org/x/tools/cmd/goimports@latest
+      - go install honnef.co/go/tools/cmd/staticcheck@v0.3.3
+      - go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
+      - go install github.com/golang/mock/mockgen@latest
+      - go install github.com/slsa-framework/slsa-verifier/v2/cli/slsa-verifier@v2.0.1
+    status:
+      - test -f {{.GOPATH}}/bin/statik
+      - test -f {{.GOPATH}}/bin/goimports
+      - test -f {{.GOPATH}}/bin/staticcheck
+      - test -f {{.GOPATH}}/bin/oapi-codegen
+      - test -f {{.GOPATH}}/bin/mockgen
+      - test -f {{.GOPATH}}/bin/slsa-verifier
+
+  golangci-lint-install:
+    desc: install golangci-lint
+    cmds:
+      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v2.0.2
+    status:
+      - test -f bin/golangci-lint
+
+  post-install:
+    desc: Development Environment post install
+    cmds:
+      - lefthook install
+
+  gen:
+    desc: code generate the project
+    deps:
+      - task: generate:all-oas-gen
+  
+  lint:
+    desc: Lint the program code.
+    cmds:
+      - cd example && go fmt ./...
+      - cd example && ../bin/golangci-lint run ./...
+      - cd lib && go fmt ./...
+      - cd lib && ../bin/golangci-lint run ./...
+
+  clean-all:
+    desc: Clean up the project
+    cmds:
+      - rm -rf bin
+
+  tidy:
+    desc: go modules tidy.
+    cmds:
+      - cd example && go mod tidy
+      - cd lib && go mod tidy
+
+  test:
+    desc: Test the program code.
+    cmds:
+      - cd example && go test -coverprofile=cover.out ./...
+      - cd lib && go test -coverprofile=cover.out ./...
+
+  coverage: 
+    desc: Coverage the test code.
+    deps:
+      - test
+    cmds:
+      - |
+        cd example && cat ./cover.out | \
+          grep -v '.gen.go' > \
+          nogen.cover.out && \
+          go tool cover -func=./nogen.cover.out
+      - |
+        cd lib && cat ./cover.out | \
+          grep -v '.gen.go' > \
+          nogen.cover.out && \
+          go tool cover -func=./nogen.cover.out
+
+  example-app-mongo:
+    desc: start up example
+    cmds:
+      - cd example && go run cmd/main.go --mode mongo
+
+  example-app-mysql:
+    desc: start up example
+    cmds:
+      - cd example && go run cmd/main.go --mode mysql
+
