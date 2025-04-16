@@ -24,4 +24,4 @@ Viron GOはViron用バックエンドアプリケーションの開発を短縮�
 
 ## 変更履歴
 
-[Changelog](https://discovery.viron.plus/docs/References/changelog/)
+[CHANGELOG.mb](./CHANGELOG.md)
