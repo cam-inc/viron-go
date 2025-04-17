@@ -21,7 +21,7 @@ jobs:
       - name: Install golangci-lint
         run: |
           echo "Installing golangci-lint..."
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v1.54.2
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v2.0.2
       - name: Run Lint
         run: |
           echo "Running lint..."
