@@ -1,27 +1,27 @@
 ---
-name: バグ報告
-about: 改善のためにバグを報告してください
+name: Bug Report
+about: Report a bug to help us improve
 title: ''
-labels: バグ
+labels: bug
 assignees: ''
 
 ---
 
-**バグの説明**
-バグの内容を明確かつ簡潔に記述してください。
+**Description of the Bug**
+Provide a clear and concise description of the bug.
 
-**再現手順**
-バグを再現する手順:
-1. 「...」に移動
-2. 「....」をクリック
-3. 「....」までスクロール
-4. エラーを確認
+**Steps to Reproduce**
+Steps to reproduce the bug:
+1. Go to "..."
+2. Click on "...."
+3. Scroll down to "...."
+4. See the error
 
-**期待される動作**
-期待していた動作を明確かつ簡潔に記述してください。
+**Expected Behavior**
+Provide a clear and concise description of what you expected to happen.
 
-**スクリーンショット**
-該当する場合は、問題を説明するためのスクリーンショットを追加してください。
+**Screenshots**
+If applicable, add screenshots to help explain the problem.
 
-**追加のコンテキスト**
-問題に関するその他の情報を記入してください。
+**Additional Context**
+Add any other context about the problem here.

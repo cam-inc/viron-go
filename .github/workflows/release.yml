@@ -20,21 +20,59 @@ jobs:
         with:
           go-version: '1.24'
 
-      # 現在のタグを取得し、バージョンをインクリメント
-      - name: Get latest tag
-        id: get_tag
+      # commit message からバージョンのbumpを決定
+      - name: Decide version bump (major/minor/patch)
+        id: version_bump
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "Latest commit message: $COMMIT_MSG"
+
+          if echo "$COMMIT_MSG" | grep -qi "BREAKING CHANGE"; then
+            BUMP="major"
+          elif echo "$COMMIT_MSG" | grep -qi "^feat:"; then
+            BUMP="minor"
+          elif echo "$COMMIT_MSG" | grep -qi "^fix:"; then
+            BUMP="patch"
+          else
+            BUMP="patch"
+          fi
+
+          echo "Bump type: $BUMP"
+          echo "bump=$BUMP" >> $GITHUB_OUTPUT
+
+      # bumpされたバージョンでtag名を決定
+      - name: Get latest version & compute new tag
+        id: new_tag
         run: |
           git fetch --tags
-          TAG=$(git tag --list "lib/v*" --sort=-v:refname | head -n 1)
+          TAG=$(git tag --list "v*" --sort=-v:refname | head -n1)
           echo "Latest tag: $TAG"
-          if [[ -z "$TAG" ]]; then
-            exit 1
+
+          if [ -z "$TAG" ]; then
+            VERSION="0.0.0"
           else
-            VERSION=$(echo "$TAG" | sed 's/lib\/v//')
-            IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
-            PATCH=$((PATCH + 1))
-            NEW_TAG="lib/v$MAJOR.$MINOR.$PATCH"
+            VERSION=$(echo "$TAG" | sed 's/^v//')
           fi
+
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+
+          case "${{ steps.version_bump.outputs.bump }}" in
+            major)
+              MAJOR=$((MAJOR + 1))
+              MINOR=0
+              PATCH=0
+              ;;
+            minor)
+              MINOR=$((MINOR + 1))
+              PATCH=0
+              ;;
+            patch)
+              PATCH=$((PATCH + 1))
+              ;;
+          esac
+
+          NEW_TAG="v$MAJOR.$MINOR.$PATCH"
+          echo "New Tag: $NEW_TAG"
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
       # タグを作成＆push

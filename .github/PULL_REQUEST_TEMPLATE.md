@@ -1,10 +1,8 @@
-`プレビュー`モードに切り替えて、**プルリクエストテンプレート**を選択してください。
+## Overview
 
-[貢献ガイドライン](https://github.com/cam-inc/viron-go/blob/main/CONTRIBUTING.md)をお読みください。
+Please describe the overview of this pull request.
 
-- [一般](?expand=1&template=general.md): バージョン管理以外のすべての種類のプルリクエストを作成する場合。
-- [バージョン](?expand=1&template=version.md): パッケージの新しいバージョンを設定する場合。
+## References
 
----
+If there is any reference information related to this pull request, please include it.
 
-注意: これは[こちら](https://github.community/t/is-there-a-pull-request-template-selector-similar-to-issues/171838/8)の回避策です。
