@@ -36,7 +36,7 @@ func TestAuditLogConditionsMongoDB(t *testing.T) {
 		"sourceIp":      "0.0.0.0",
 		"userId":        "user_id",
 		"requestBody":   "{}",
-		"statusCode":    200,
+		"statusCode":    int32(200),
 	}
 	size := int64(1)
 	skip := int64(0)
@@ -71,7 +71,7 @@ func TestAuditLogCondtionsMySQL(t *testing.T) {
 		qm.Where("sourceIp = ?", "0.0.0.0"),
 		qm.Where("userId = ?", "user_id"),
 		qm.Where("requestBody = ?", "{}"),
-		qm.Where("statusCode = ?", 200),
+		qm.Where("statusCode = ?", int32(200)),
 		qm.OrderBy(fmt.Sprintf("%s %s", "id", Desc)),
 		qm.Limit(1),
 		qm.Offset(0),

@@ -30,3 +30,6 @@ bin
 # example
 example/data
 example/cert
+
+# sqlboiler.toml
+sqlboiler.toml

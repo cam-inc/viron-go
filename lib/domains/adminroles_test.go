@@ -9,7 +9,8 @@ import (
 )
 
 func setUpRole() {
-	if err := NewFile("./test_casbin"); err != nil {
+
+	if err := NewFile("./testdata/casbin.conf", "./testdata/casbin.csv"); err != nil {
 		panic(err)
 	}
 }

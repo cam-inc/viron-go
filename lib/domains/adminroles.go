@@ -122,16 +122,11 @@ func NewMongo(opt *options.ClientOptions, dbName string, collectionName string) 
 	return new(m, a)
 }
 
-func NewFile(filePath string) error {
+func NewFile(confFilePath string, csvFilePath string) error {
 	if casbinInstance != nil {
 		return nil
 	}
-	m, err := model.NewModelFromString(modelText)
-	if err != nil {
-		return err
-	}
-
-	return new(m, filePath)
+	return new(confFilePath, csvFilePath)
 }
 
 func getPermissions(permissions []string) []string {
