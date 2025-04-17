@@ -68,6 +68,11 @@ tasks:
       - cd example && ../bin/golangci-lint run ./...
       - cd lib && go fmt ./...
       - cd lib && ../bin/golangci-lint run ./...
+  
+  commit-msg:
+    desc: commit message validation.
+    cmds:
+      - ./scripts/validate-commit-msg.sh "{{.CLI_ARGS}}"
 
   clean-all:
     desc: Clean up the project

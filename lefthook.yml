@@ -1,3 +1,7 @@
+commit-msg:
+  scripts:
+    "validate-commit-msg.sh":
+      runner: bash
 pre-push:
   commands:
     test:
@@ -6,8 +10,3 @@ pre-commit:
   commands:
     lint:
       run: task lint
-    scripts:
-      validate-commit-msg:
-        runner: bash
-        script: ./scripts/validate-commit-msg.sh
-        args: ["{1}"]
