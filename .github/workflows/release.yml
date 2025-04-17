@@ -1,27 +1,57 @@
-name: release
+name: Release on main merge
 
 on:
   push:
-    tags:
-      - 'v*'  # v1.0.0 などのタグPushをトリガーにする
+    branches:
+      - main
 
 jobs:
   release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      # ソースをチェックアウト
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Go
+      # Go をセットアップ（任意）
+      - name: Setup Go
         uses: actions/setup-go@v4
         with:
           go-version: '1.24'
 
-      - name: Install GoReleaser and run release
-        uses: goreleaser/goreleaser-action@v4
+      # 現在のタグを取得し、バージョンをインクリメント
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          git fetch --tags
+          TAG=$(git tag --list "lib/v*" --sort=-v:refname | head -n 1)
+          echo "Latest tag: $TAG"
+          if [[ -z "$TAG" ]]; then
+            NEW_TAG="v1.0.0"
+          else
+            VERSION=$(echo "$TAG" | sed 's/v//')
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+            PATCH=$((PATCH + 1))
+            NEW_TAG="v$MAJOR.$MINOR.$PATCH"
+          fi
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      # タグを作成＆push
+      - name: Create Git tag
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git tag ${{ steps.get_tag.outputs.new_tag }}
+          git push origin ${{ steps.get_tag.outputs.new_tag }}
+
+      # GitHub Release を作成
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          version: latest
-          args: release --clean
+          tag_name: ${{ steps.get_tag.outputs.new_tag }}
+          name: Release ${{ steps.get_tag.outputs.new_tag }}
+          body: |
+            Automated release created on push to main.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

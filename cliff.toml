@@ -1,0 +1,15 @@
+[changelog]
+header = "# CHANGELOG\n\nAll notable changes to this project will be documented in this file.\n"
+body = """
+{% for group, commits in commits | group_by(attribute="group") %}
+### {{ group | upper_first }}
+
+{% for commit in commits %}
+- {{ commit.message }} ({{ commit.author.name }})
+{% endfor %}
+{% endfor %}
+"""
+trim = true
+
+[git]
+tag_pattern = "lib/v[0-9]*"

@@ -18,6 +18,7 @@ tasks:
       - pre
       - golang-install
       - golangci-lint-install
+      - git-cliff-install
   pre:
     cmds:
       - echo 'Preliminary preparations have been completed.'
@@ -49,6 +50,11 @@ tasks:
       - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v2.0.2
     status:
       - test -f bin/golangci-lint
+
+  git-cliff-install:
+    desc: install git-cliff
+    cmds:
+      - brew install git-cliff
 
   gen:
     desc: code generate the project
