@@ -47,11 +47,9 @@ jobs:
 
       # GitHub Release を作成
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ steps.get_tag.outputs.new_tag }}
-          name: Release ${{ steps.get_tag.outputs.new_tag }}
-          body: |
-            Automated release created on push to main.
+        run: |
+          gh release create ${{ steps.get_tag.outputs.new_tag }} \
+            --title "Release ${{ steps.get_tag.outputs.new_tag }}" \
+            --notes "Automated release created on push to main."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
