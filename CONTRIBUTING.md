@@ -38,14 +38,6 @@ $ echo 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"' >> ~/.zshrc
 $ source ~/.zshrc
 ```
 
-##### Installing asdf Plugins
-
-```bash
-asdf plugin add golang
-asdf plugin add task https://github.com/paulvollmer/asdf-task.git
-asdf plugin add lefthook https://github.com/jtzero/asdf-lefthook.git
-```
-
 ##### Installing Dependencies with asdf
 
 ```bash
