@@ -30,7 +30,7 @@ tasks:
 
   golang-install:
     cmds:
-      - go install github.com/rakyll/statik
+      - go install github.com/rakyll/statik@latest
       - go install golang.org/x/tools/cmd/goimports@latest
       - go install honnef.co/go/tools/cmd/staticcheck@v0.3.3
       - go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest

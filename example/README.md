@@ -37,8 +37,8 @@ docker compose -f docker-compose-store.yaml up --build mongo
 cd viron-go
 
 # When using MySQL
-task example-dev-mysql
+task example-app-mysql
 
 # When using Mongo
-task example-dev-mongo
+task example-app-mongo
 ```
