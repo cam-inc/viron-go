@@ -18,7 +18,6 @@ tasks:
       - pre
       - golang-install
       - golangci-lint-install
-      - git-cliff-install
   pre:
     cmds:
       - echo 'Preliminary preparations have been completed.'
@@ -44,18 +43,6 @@ tasks:
       - test -f {{.GOPATH}}/bin/mockgen
       - test -f {{.GOPATH}}/bin/slsa-verifier
 
-  golangci-lint-install:
-    desc: install golangci-lint
-    cmds:
-      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v2.0.2
-    status:
-      - test -f bin/golangci-lint
-
-  git-cliff-install:
-    desc: install git-cliff
-    cmds:
-      - brew install git-cliff
-
   gen:
     desc: code generate the project
     deps:
@@ -65,9 +52,9 @@ tasks:
     desc: Lint the program code.
     cmds:
       - cd example && go fmt ./...
-      - cd example && ../bin/golangci-lint run ./...
+      - cd example && golangci-lint run ./...
       - cd lib && go fmt ./...
-      - cd lib && ../bin/golangci-lint run ./...
+      - cd lib && golangci-lint run ./...
 
   changeset:
     desc: changeset.

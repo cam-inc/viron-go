@@ -1,3 +1,5 @@
 golang 1.24.0
 lefthook 1.2.9
 task 3.42.1
+git-cliff 2.8.0
+golangci-lint 2.0.2
