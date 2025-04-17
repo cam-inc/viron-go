@@ -1,15 +1,12 @@
-name: Lint Code - Viron/linter
+name: Check - Lint and Test
 
 on:
   push:
     branches:
-      - develop
-    paths:
-      - "**.go"
-      - "Taskfile.yml"
+      - main
 
 jobs:
-  lint:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,3 +22,7 @@ jobs:
         run: |
           echo "Running lint..."
           ./bin/task lint
+      - name: Run Tests
+        run: |
+          echo "Running tests..."
+          ./bin/task test
