@@ -18,6 +18,10 @@ jobs:
         run: |
           echo "Installing Task..."
           sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
+      - name: Install golangci-lint
+        run: |
+          echo "Installing golangci-lint..."
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v1.54.2
       - name: Run Lint
         run: |
           echo "Running lint..."
