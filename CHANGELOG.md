@@ -13,3 +13,13 @@ All notable changes to this project will be documented in this file.
 
 - task commit-msg remove (takoring)
 
+- gha release and check (takoring)
+
+- gha check test (takoring)
+
+- gha check test (takoring)
+
+- gha release test (takoring)
+
+- pr check trigger (takoring)
+
