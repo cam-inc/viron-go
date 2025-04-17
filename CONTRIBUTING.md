@@ -19,21 +19,16 @@ To propose a feature enhancement, please submit a [GitHub issue](https://github.
 ### Contributing Code
 
 #### Getting the Code
-```
-$ git clone git@github.com:cam-inc/fensi-go.git
+
+```bash
+git clone git@github.com:cam-inc/viron-go.git
 ```
 
 #### Setting Up Tools
-##### Installing taskfile
-```
-# Hint: Other installation methods are also available.
-# See https://taskfile.dev/installation/ for details.
-
-$ brew install go-task/tap/go-task
-```
 
 ##### Installing asdf
-```
+
+```bash
 # Hint: Other installation methods are also available.
 # See https://asdf-vm.com/guide/getting-started.html for details.
 $ brew install asdf
@@ -44,42 +39,37 @@ $ source ~/.zshrc
 ```
 
 ##### Installing asdf Plugins
-```
-$ asdf plugin add golang
-$ asdf plugin add ko https://github.com/zasdaym/asdf-ko.git
-$ asdf plugin add lefthook https://github.com/jtzero/asdf-lefthook.git
-$ asdf plugin add helm https://github.com/Antiarchitect/asdf-helm.git
+
+```bash
+asdf plugin add golang
+asdf plugin add task https://github.com/paulvollmer/asdf-task.git
+asdf plugin add lefthook https://github.com/jtzero/asdf-lefthook.git
 ```
 
 ##### Installing Dependencies with asdf
-```
-$ asdf install
-```
 
-##### Installing lefthook
-```
-$ brew install lefthook
-```
-
-##### Installing Dependencies with asdf
-```
-$ npx lefthook install
+```bash
+asdf install
 ```
 
 #### Setting Up the Application
+
 ##### Installing Dependencies with task
-```
-$ task install
+
+```bash
+task install
 ```
 
 ##### Running go mod tidy
-```
-$ task tidy
+
+```bash
+task tidy
 ```
 
 #### Running Tests
-```
-$ task test
+
+```bash
+task test
 ```
 
 Here is a simple guide to contribute code:
@@ -91,8 +81,10 @@ Here is a simple guide to contribute code:
 5. Submit a pull request to the upstream repository.
 
 #### Using the Library in Other Projects
+
 To use this library in other Go projects, use `go get`.
-```
+
+```bash
 Example: go get github.com/cam-inc/viron-go@v1.0.0
 
 Import it as usual:
@@ -101,6 +93,7 @@ import "github.com/cam-inc/viron-go/lib/domains"
 ```
 
 #### Release Workflow
+
 [Module Release and Versioning Workflow](https://go.dev/doc/modules/release-workflow)
 
 The release workflow for custom Go (Golang) libraries (assuming GitHub integration) can be designed as follows. This ensures that versioned code is correctly released and available for external projects using Go Modules.
