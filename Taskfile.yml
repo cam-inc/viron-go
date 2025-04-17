@@ -43,6 +43,13 @@ tasks:
       - test -f {{.GOPATH}}/bin/mockgen
       - test -f {{.GOPATH}}/bin/slsa-verifier
 
+  golangci-lint-install:
+    desc: install golangci-lint
+    cmds:
+      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v2.0.2
+    status:
+      - test -f bin/golangci-lint
+
   gen:
     desc: code generate the project
     deps:
@@ -52,9 +59,9 @@ tasks:
     desc: Lint the program code.
     cmds:
       - cd example && go fmt ./...
-      - cd example && golangci-lint run ./...
+      - cd example && ../bin/golangci-lint run ./...
       - cd lib && go fmt ./...
-      - cd lib && golangci-lint run ./...
+      - cd lib && ../bin/golangci-lint run ./...
 
   changeset:
     desc: changeset.
