@@ -1,11 +1,8 @@
-commit-msg:
-  scripts:
+pre-commit:
+  commands:
     validate-commit-msg:
       runner: bash
       script: ./scripts/validate-commit-msg.sh
-
-pre-commit:
-  commands:
     lint:
       run: task lint
 
