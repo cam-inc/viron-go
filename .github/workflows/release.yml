@@ -80,14 +80,14 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git tag ${{ steps.get_tag.outputs.new_tag }}
-          git push origin ${{ steps.get_tag.outputs.new_tag }}
+          git tag ${{ steps.new_tag.outputs.new_tag }}
+          git push origin ${{ steps.new_tag.outputs.new_tag }}
 
       # GitHub Release を作成
       - name: Create GitHub Release
         run: |
-          gh release create ${{ steps.get_tag.outputs.new_tag }} \
-            --title "Release ${{ steps.get_tag.outputs.new_tag }}" \
+          gh release create ${{ steps.new_tag.outputs.new_tag }} \
+            --title "Release ${{ steps.new_tag.outputs.new_tag }}" \
             --notes "Automated release created on push to main."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
