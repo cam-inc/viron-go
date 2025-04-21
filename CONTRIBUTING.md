@@ -128,5 +128,6 @@ We appreciate everyone who has contributed to this project.
 <table>
   <tr>
     <td align="center"><a href="https://github.com/takoring"><img src="https://avatars.githubusercontent.com/u/24517668?v=4" width="100px;" alt=""/><br /><sub><b>takoring</b></sub></a><br />💻</td>
+    <td align="center"><a href="https://github.com/ejithon"><img src="https://avatars.githubusercontent.com/u/2027132?v=4" width="100px;" alt=""/><br /><sub><b>ejithon</b></sub></a><br />🤔</td>
   </tr>
 </table>
