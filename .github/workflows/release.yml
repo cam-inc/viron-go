@@ -71,7 +71,7 @@ jobs:
               ;;
           esac
 
-          NEW_TAG="v$MAJOR.$MINOR.$PATCH"
+          NEW_TAG="lib/v$MAJOR.$MINOR.$PATCH"
           echo "New Tag: $NEW_TAG"
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
