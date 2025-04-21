@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### ⚙️ Miscellaneous Tasks
+
+- Readme
+
 ## [lib/v0.1.5] - 2025-04-21
 
 ### ⚙️ Miscellaneous Tasks
