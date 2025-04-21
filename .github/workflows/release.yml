@@ -34,7 +34,8 @@ jobs:
           elif echo "$COMMIT_MSG" | grep -qi "^fix:"; then
             BUMP="patch"
           else
-            BUMP="patch"
+            echo "No valid commit message for version bump. Skipping tag and release."
+            exit 0
           fi
 
           echo "Bump type: $BUMP"
@@ -44,6 +45,12 @@ jobs:
       - name: Get latest version & compute new tag
         id: new_tag
         run: |
+          # bumpがない場合はskipping
+          if [ "${{ steps.version_bump.outputs.bump }}" == "" ]; then
+            echo "No version bump detected. Skipping tag and release."
+            exit 0
+          fi
+
           git fetch --tags
           TAG=$(git tag --list "lib/v*" --sort=-v:refname | head -n1)
           echo "Latest tag: $TAG"
@@ -78,6 +85,12 @@ jobs:
       # タグを作成＆push
       - name: Create Git tag
         run: |
+          # new_tagがない場合はskipping
+          if [ "${{ steps.new_tag.outputs.new_tag }}" == "" ]; then
+            echo "No new tag detected. Skipping tag creation."
+            exit 0
+          fi
+
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git tag ${{ steps.new_tag.outputs.new_tag }}
@@ -86,6 +99,12 @@ jobs:
       # GitHub Release を作成
       - name: Create GitHub Release
         run: |
+          # new_tagがない場合はskipping
+          if [ "${{ steps.new_tag.outputs.new_tag }}" == "" ]; then
+            echo "No new tag detected. Skipping tag creation."
+            exit 0
+          fi
+
           gh release create ${{ steps.new_tag.outputs.new_tag }} \
             --title "Release ${{ steps.new_tag.outputs.new_tag }}" \
             --notes "Automated release created on push to main."

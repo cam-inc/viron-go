@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [lib/v0.1.6] - 2025-04-21
+
+### 🐛 Bug Fixes
+
+- Release version lib with
 
 ### ⚙️ Miscellaneous Tasks
 
