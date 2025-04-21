@@ -1,0 +1,112 @@
+name: Release on main merge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ソースをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Go をセットアップ（任意）
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.24'
+
+      # commit message からバージョンのbumpを決定
+      - name: Decide version bump (major/minor/patch)
+        id: version_bump
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "Latest commit message: $COMMIT_MSG"
+
+          if echo "$COMMIT_MSG" | grep -qi "BREAKING CHANGE"; then
+            BUMP="major"
+          elif echo "$COMMIT_MSG" | grep -qi "^feat:"; then
+            BUMP="minor"
+          elif echo "$COMMIT_MSG" | grep -qi "^fix:"; then
+            BUMP="patch"
+          else
+            echo "No valid commit message for version bump. Skipping tag and release."
+            exit 0
+          fi
+
+          echo "Bump type: $BUMP"
+          echo "bump=$BUMP" >> $GITHUB_OUTPUT
+
+      # bumpされたバージョンでtag名を決定
+      - name: Get latest version & compute new tag
+        id: new_tag
+        run: |
+          # bumpがない場合はskipping
+          if [ "${{ steps.version_bump.outputs.bump }}" == "" ]; then
+            echo "No version bump detected. Skipping tag and release."
+            exit 0
+          fi
+
+          git fetch --tags
+          TAG=$(git tag --list "lib/v*" --sort=-v:refname | head -n1)
+          echo "Latest tag: $TAG"
+
+          if [ -z "$TAG" ]; then
+            VERSION="0.0.0"
+          else
+            VERSION=$(echo "$TAG" | sed 's/^lib\/v//')
+          fi
+
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+
+          case "${{ steps.version_bump.outputs.bump }}" in
+            major)
+              MAJOR=$((MAJOR + 1))
+              MINOR=0
+              PATCH=0
+              ;;
+            minor)
+              MINOR=$((MINOR + 1))
+              PATCH=0
+              ;;
+            patch)
+              PATCH=$((PATCH + 1))
+              ;;
+          esac
+
+          NEW_TAG="lib/v$MAJOR.$MINOR.$PATCH"
+          echo "New Tag: $NEW_TAG"
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      # タグを作成＆push
+      - name: Create Git tag
+        run: |
+          # new_tagがない場合はskipping
+          if [ "${{ steps.new_tag.outputs.new_tag }}" == "" ]; then
+            echo "No new tag detected. Skipping tag creation."
+            exit 0
+          fi
+
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git tag ${{ steps.new_tag.outputs.new_tag }}
+          git push origin ${{ steps.new_tag.outputs.new_tag }}
+
+      # GitHub Release を作成
+      - name: Create GitHub Release
+        run: |
+          # new_tagがない場合はskipping
+          if [ "${{ steps.new_tag.outputs.new_tag }}" == "" ]; then
+            echo "No new tag detected. Skipping tag creation."
+            exit 0
+          fi
+
+          gh release create ${{ steps.new_tag.outputs.new_tag }} \
+            --title "Release ${{ steps.new_tag.outputs.new_tag }}" \
+            --notes "Automated release created on push to main."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

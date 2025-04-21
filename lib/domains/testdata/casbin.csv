@@ -1,0 +1,8 @@
+p, admin, data1, read
+p, admin, data1, write
+p, editor, data2, write
+p, viewer, data2, read
+g, alice, admin
+g, bob, viewer
+g, carol, editor
+g, dave, super
