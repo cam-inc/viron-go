@@ -1,40 +1,40 @@
-# Viron-Go ライブラリ
+# Viron-Go Library
 
-このライブラリーは、[Viron](https://github.com/cam-inc/viron)を利用したバックエンドアプリケーションを作成するための基本機能を提供します。
+This library provides basic functionalities for creating backend applications using [Viron](https://github.com/cam-inc/viron).
 
-## 特徴
+## Features
 
-- **認証機能**: メールパスワード認証、Google認証、OpenID Connect認証が標準で提供されています。
-- **管理アカウント管理**: VironにログインするためのVironアカウント管理機能が提供さています。
-- **管理ロール管理**: Vironアカウントのロール管理がRBACで提供さています。
+- **Authentication**: Standard support for email-password authentication, Google authentication, and OpenID Connect authentication.
+- **Admin Account Management**: Provides functionality for managing Viron accounts used to log in to Viron.
+- **Admin Role Management**: Provides RBAC-based role management for Viron accounts.
 
-## ディレクトリ構成
+## Directory Structure
 
-- `api/`: Vironで利用するOAS（OpenAPI Specification）定義を格納するディレクトリ。
-- `configs/`: 設定に関する型定義を管理するディレクトリ。
-- `constant/`: アプリケーションで使用する定数を管理するディレクトリ。
-- `domains/`: 共通のビジネスロジックを実装するディレクトリ。
-- `errors/`: エラーに関する型定義を管理するディレクトリ。
-- `helpers/`: ユーティリティ関数や補助的な機能を提供するディレクトリ。
-- `linter/`: コードの静的解析やスタイルチェックを行うための設定やスクリプトを格納するディレクトリ。
-- `logging/`: アプリケーションのログ出力に関する設定やロジックを管理するディレクトリ。
-- `repositories/`: データベースや外部APIとのやり取りを抽象化するリポジトリ層を実装するディレクトリ。
-- `routes/`: アプリケーションのルーティングを定義し、各エンドポイントの処理を管理するディレクトリ。
+- `api/`: Directory for storing OAS (OpenAPI Specification) definitions used by Viron.
+- `configs/`: Directory for managing type definitions related to configurations.
+- `constant/`: Directory for managing constants used in the application.
+- `domains/`: Directory for implementing common business logic.
+- `errors/`: Directory for managing type definitions related to errors.
+- `helpers/`: Directory for providing utility functions and auxiliary features.
+- `linter/`: Directory for storing settings and scripts for static code analysis and style checks.
+- `logging/`: Directory for managing settings and logic related to application log output.
+- `repositories/`: Directory for implementing the repository layer that abstracts interactions with databases and external APIs.
+- `routes/`: Directory for defining application routing and managing the processing of each endpoint.
 
-## 使用方法
+## Usage
 
-このディレクトリのライブラリを使用するには、以下のようにコードにインポートしてください。
+To use the libraries in this directory, import them into your code as follows:
 
 ```go
 import "github.com/cam-inc/viron-go/lib/<library-name>"
 ```
 
-`<library-name>` を使用したい特定のライブラリ名に置き換えてください。
+Replace `<library-name>` with the specific library name you want to use.
 
-## コントリビューション
+## Contribution
 
-詳細は[CONTRIBUTING](../CONTRIBUTING.md)ファイルをご覧ください。
+For details, please refer to the [CONTRIBUTING](../CONTRIBUTING.md) file.
 
-## ライセンス
+## License
 
-このプロジェクトはMITライセンスの下でライセンスされています。詳細は[LICENSE](../LICENSE)ファイルをご覧ください。
+This project is licensed under the MIT License. For details, please refer to the [LICENSE](../LICENSE) file.
