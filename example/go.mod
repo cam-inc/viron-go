@@ -3,7 +3,7 @@ module github.com/cam-inc/viron-go-example
 go 1.24
 
 require (
-	github.com/cam-inc/viron-go/lib v0.0.1
+	github.com/cam-inc/viron-go/lib v1.0.0
 	github.com/getkin/kin-openapi v0.118.0
 	github.com/go-chi/chi v1.5.4
 	github.com/go-chi/chi/v5 v5.0.10
