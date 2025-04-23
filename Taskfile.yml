@@ -16,7 +16,7 @@ tasks:
     desc: Prepare a development environment
     deps:
       - pre
-      - golang-install
+      - go-install-modules
       - golangci-lint-install
   pre:
     cmds:
@@ -27,21 +27,11 @@ tasks:
       - sh: "which go"
         msg: 'Please install golang.'
 
-  golang-install:
+  go-install-modules:
     cmds:
-      - go install github.com/rakyll/statik@latest
-      - go install golang.org/x/tools/cmd/goimports@latest
-      - go install honnef.co/go/tools/cmd/staticcheck@v0.3.3
       - go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
-      - go install github.com/golang/mock/mockgen@latest
-      - go install github.com/slsa-framework/slsa-verifier/v2/cli/slsa-verifier@v2.0.1
     status:
-      - test -f {{.GOPATH}}/bin/statik
-      - test -f {{.GOPATH}}/bin/goimports
-      - test -f {{.GOPATH}}/bin/staticcheck
       - test -f {{.GOPATH}}/bin/oapi-codegen
-      - test -f {{.GOPATH}}/bin/mockgen
-      - test -f {{.GOPATH}}/bin/slsa-verifier
 
   golangci-lint-install:
     desc: install golangci-lint
