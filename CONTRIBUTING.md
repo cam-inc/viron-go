@@ -44,6 +44,12 @@ $ source ~/.zshrc
 asdf install
 ```
 
+##### Install git hooks with lefthook
+
+```bash
+lefthook install
+```
+
 #### Setting Up the Application
 
 ##### Installing Dependencies with task
