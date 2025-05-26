@@ -32,7 +32,7 @@ func TestValidateRoleAndPermissions(t *testing.T) {
 					Permission: "read",
 				},
 			},
-			Err: errors.Initialize(http.StatusBadRequest, "role id cannot contain commas."),
+			Err: errors.Initialize(http.StatusBadRequest, "Role ID can only contain alphanumeric characters, hyphens, and underscores."),
 		},
 		{
 			Title:  "Resource id with commas.",
@@ -43,7 +43,7 @@ func TestValidateRoleAndPermissions(t *testing.T) {
 					Permission: "read",
 				},
 			},
-			Err: errors.Initialize(http.StatusBadRequest, "policy resource id cannot contain commas."),
+			Err: errors.Initialize(http.StatusBadRequest, "Resource ID in policy can only contain alphanumeric characters, hyphens, and underscores."),
 		},
 		{
 			Title:  "Permission with commas.",
@@ -54,7 +54,7 @@ func TestValidateRoleAndPermissions(t *testing.T) {
 					Permission: "read_,",
 				},
 			},
-			Err: errors.Initialize(http.StatusBadRequest, "policy permission cannot contain commas."),
+			Err: errors.Initialize(http.StatusBadRequest, "Permission in policy can only contain alphanumeric characters, hyphens, and underscores."),
 		},
 		{
 			Title:  "No commas.",
@@ -66,6 +66,72 @@ func TestValidateRoleAndPermissions(t *testing.T) {
 				},
 			},
 			Err: nil,
+		},
+		{
+			Title:  "Role id with double quotes.",
+			RoleId: "role_00005\"",
+			Permissions: []*AdminRolePermission{
+				{
+					ResourceID: "resource_00005",
+					Permission: "read",
+				},
+			},
+			Err: errors.Initialize(http.StatusBadRequest, "Role ID can only contain alphanumeric characters, hyphens, and underscores."),
+		},
+		{
+			Title:  "Role id with single quotes.",
+			RoleId: "role_00006'",
+			Permissions: []*AdminRolePermission{
+				{
+					ResourceID: "resource_00006",
+					Permission: "read",
+				},
+			},
+			Err: errors.Initialize(http.StatusBadRequest, "Role ID can only contain alphanumeric characters, hyphens, and underscores."),
+		},
+		{
+			Title:  "Resource id with double quotes.",
+			RoleId: "role_00007",
+			Permissions: []*AdminRolePermission{
+				{
+					ResourceID: "resource_00007\"",
+					Permission: "read",
+				},
+			},
+			Err: errors.Initialize(http.StatusBadRequest, "Resource ID in policy can only contain alphanumeric characters, hyphens, and underscores."),
+		},
+		{
+			Title:  "Resource id with single quotes.",
+			RoleId: "role_00008",
+			Permissions: []*AdminRolePermission{
+				{
+					ResourceID: "resource_00008'",
+					Permission: "read",
+				},
+			},
+			Err: errors.Initialize(http.StatusBadRequest, "Resource ID in policy can only contain alphanumeric characters, hyphens, and underscores."),
+		},
+		{
+			Title:  "Permission with double quotes.",
+			RoleId: "role_00009",
+			Permissions: []*AdminRolePermission{
+				{
+					ResourceID: "resource_00009",
+					Permission: "read\"",
+				},
+			},
+			Err: errors.Initialize(http.StatusBadRequest, "Permission in policy can only contain alphanumeric characters, hyphens, and underscores."),
+		},
+		{
+			Title:  "Permission with single quotes.",
+			RoleId: "role_00010",
+			Permissions: []*AdminRolePermission{
+				{
+					ResourceID: "resource_00010",
+					Permission: "read'",
+				},
+			},
+			Err: errors.Initialize(http.StatusBadRequest, "Permission in policy can only contain alphanumeric characters, hyphens, and underscores."),
 		},
 	}
 
