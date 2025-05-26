@@ -134,11 +134,11 @@ func TestValidateRoleAndPermissions(t *testing.T) {
 			Err: errors.Initialize(http.StatusBadRequest, "Permission in policy can only contain alphanumeric characters, hyphens, and underscores."),
 		},
 		{
-			Title:  "Role id with hyphen and underscore.",
+			Title:  "Role id with hyphen and underscore and colon.",
 			RoleId: "role-00011_",
 			Permissions: []*AdminRolePermission{
 				{
-					ResourceID: "resource-00011_",
+					ResourceID: "resource:-00011_",
 					Permission: "read",
 				},
 			},

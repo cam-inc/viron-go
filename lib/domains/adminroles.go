@@ -497,6 +497,6 @@ func ValidateRoleAndPermissions(roleID string, permissions []*AdminRolePermissio
 }
 
 func containsInvalidCharacters(param string) bool {
-	r := regexp.MustCompile(`^[a-zA-Z0-9_-]+$`)
+	r := regexp.MustCompile(`^[a-zA-Z0-9_:-]+$`)
 	return !r.MatchString(param)
 }

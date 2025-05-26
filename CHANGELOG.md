@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [lib/v0.0.3] - 2025-05-26
+
+### 🐛 Bug Fixes
+
+- allow colons in casbin rule
+
 ## [lib/v0.0.2] - 2025-05-26
 
 ### 🐛 Bug Fixes
