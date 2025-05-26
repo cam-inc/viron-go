@@ -476,26 +476,27 @@ func UpdateAdminRoleByID(roleID string, permissions []*AdminRolePermission) *err
 	return UpdatePermissionsForRole(roleID, permissions)
 }
 func ValidateRoleAndPermissions(roleID string, permissions []*AdminRolePermission) *errors.VironError {
-	// カンマをvalidate()で除く理由
-	// casbinのpolicyに "," が存在すると、policyをloadする際に不具合が出る
+	// 英数字とハイフンとアンダースコアのみにする理由
+	// casbinのpolicyにカンマ、クォート文字などが存在すると、policyをloadする際に「panic: parse error on line 1, column 74: bare " in non-quoted-field」などパースエラーが発生する
+	// そのため、英数字とハイフンとアンダースコアのみに制限する
 	if roleID != "" {
-		if existsCommas(roleID) {
-			return errors.Initialize(http.StatusBadRequest, "role id cannot contain commas.")
+		if containsInvalidCharacters(roleID) {
+			return errors.Initialize(http.StatusBadRequest, "Role ID can only contain alphanumeric characters, hyphens, and underscores.")
 		}
 	}
 	for _, policy := range permissions {
 		_policy := *policy
-		if existsCommas(_policy.ResourceID) {
-			return errors.Initialize(http.StatusBadRequest, "policy resource id cannot contain commas.")
+		if containsInvalidCharacters(_policy.ResourceID) {
+			return errors.Initialize(http.StatusBadRequest, "Resource ID in policy can only contain alphanumeric characters, hyphens, and underscores.")
 		}
-		if existsCommas(_policy.Permission) {
-			return errors.Initialize(http.StatusBadRequest, "policy permission cannot contain commas.")
+		if containsInvalidCharacters(_policy.Permission) {
+			return errors.Initialize(http.StatusBadRequest, "Permission in policy can only contain alphanumeric characters, hyphens, and underscores.")
 		}
 	}
 	return nil
 }
 
-func existsCommas(param string) bool {
-	r := regexp.MustCompile(`,`)
-	return r.MatchString(param)
+func containsInvalidCharacters(param string) bool {
+	r := regexp.MustCompile(`^[a-zA-Z0-9_-]+$`)
+	return !r.MatchString(param)
 }
