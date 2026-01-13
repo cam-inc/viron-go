@@ -2,17 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [lib/v0.0.4] - 2026-01-13
+
+### 🐛 Bug Fixes
+
+- *(helpers)* Set Content-Type header to application/json for JSON responses
+
 ## [lib/v0.0.3] - 2025-05-26
 
 ### 🐛 Bug Fixes
 
-- allow colons in casbin rule
+- Allow colons in casbin rule
 
 ## [lib/v0.0.2] - 2025-05-26
 
 ### 🐛 Bug Fixes
 
 - If the casbin rule contains invalid characters, loadpolicy fails
+- Changelog
+- Added test case to allow hyphens and underscores
+
+### 📚 Documentation
+
+- Update CHANGELOG.md
 
 ## [lib/v0.0.1] - 2025-04-23
 
