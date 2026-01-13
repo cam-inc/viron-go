@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### 🐛 Bug Fixes
+
+- *(helpers)* Set Content-Type header to application/json for JSON responses
+
 ## [lib/v0.0.3] - 2025-05-26
 
 ### 🐛 Bug Fixes

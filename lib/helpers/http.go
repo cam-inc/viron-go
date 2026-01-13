@@ -13,6 +13,7 @@ import (
 )
 
 func SendError(w http.ResponseWriter, code int, err error) {
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
 	if err := json.NewEncoder(w).Encode(err); err != nil {
 		logging.GetDefaultLogger().Warnf("sendError err=%v\n", err)
@@ -20,6 +21,7 @@ func SendError(w http.ResponseWriter, code int, err error) {
 }
 
 func Send(w http.ResponseWriter, code int, send interface{}) {
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
 	if send != nil {
 		if err := json.NewEncoder(w).Encode(send); err != nil {
