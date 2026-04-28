@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+# NOTE: grant GITHUB_TOKEN only the minimum required permissions
+# - contents: write → required for git tag push / gh release create
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
