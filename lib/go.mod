@@ -1,6 +1,6 @@
 module github.com/cam-inc/viron-go/lib
 
-go 1.24
+go 1.24.0
 
 require (
 	github.com/Blank-Xu/sql-adapter v0.0.0-20210714092925-0bdd0d548758
@@ -24,7 +24,7 @@ require (
 	github.com/volatiletech/strmangle v0.0.6
 	github.com/xeipuuv/gojsonschema v1.2.0
 	go.mongodb.org/mongo-driver v1.16.1
-	golang.org/x/crypto v0.33.0
+	golang.org/x/crypto v0.45.0
 	golang.org/x/oauth2 v0.26.0
 )
 
@@ -81,9 +81,9 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d // indirect
-	golang.org/x/sync v0.11.0 // indirect
-	golang.org/x/sys v0.30.0 // indirect
-	golang.org/x/text v0.22.0 // indirect
+	golang.org/x/sync v0.18.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/text v0.31.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
