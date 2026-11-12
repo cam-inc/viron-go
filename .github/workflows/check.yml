@@ -13,7 +13,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@7b8cf10d4e4a01d4992d18a89f4d7dc5a3e6d6f4 # v4
         with:
-          go-version: '1.24'
+          go-version: '1.27.4'
       - name: Install Task
         run: |
           echo "Installing Task..."
@@ -21,7 +21,7 @@ jobs:
       - name: Install golangci-lint
         run: |
           echo "Installing golangci-lint..."
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v2.0.2
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v2.15.0
       - name: Run Lint
         run: |
           echo "Running lint..."
