@@ -36,7 +36,7 @@ tasks:
   golangci-lint-install:
     desc: install golangci-lint
     cmds:
-      - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ./bin v2.0.2
+      - curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b ./bin v2.15.0
     status:
       - test -f bin/golangci-lint
 

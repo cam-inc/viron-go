@@ -1,6 +1,6 @@
 module github.com/cam-inc/viron-go-example
 
-go 1.24
+go 1.27.4
 
 require (
 	github.com/cam-inc/viron-go/lib v1.0.0
